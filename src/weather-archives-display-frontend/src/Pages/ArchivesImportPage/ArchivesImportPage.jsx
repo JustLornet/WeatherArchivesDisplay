@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ArchivesImportPage.css"
 import { connect } from "react-redux"
+import FilesInput from "../../Common/FilesInput/FilesInput";
 
-const ArchivesImportPage = ({  }) => {
+const ArchivesImportPage = ({ state }) => {
     return (
         <div>
-
+            <FilesInput />
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    return {
+    console.log(state)
 
+    return {
+        state: state
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
     }
 }
 

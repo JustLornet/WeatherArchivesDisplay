@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-// import coffeeOrderPage from "../reducers/coffeeOrderPage";
+import archivesImportPage from "./archivesImportPage";
 
 const rootReducer = combineReducers({
-	// coffeeOrderPage,
+	archivesImportPage,
 });
 
 export default rootReducer;

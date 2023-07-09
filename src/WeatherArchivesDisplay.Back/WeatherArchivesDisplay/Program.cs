@@ -1,9 +1,17 @@
+using WeatherArchivesDisplay.Controllers.Utils;
+using WeatherArchivesDisplay.DataAccess;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 
 builder.Services.AddCors();
+
+// Получение строки подключения
+var connectionString = ReadAppSettings.GetConnectionString();
+// Подключение БД
+builder.Services.AddSqlServer<Db>(connectionString);
 
 var app = builder.Build();
 
@@ -15,7 +23,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseCors(builder => builder.AllowAnyOrigin());
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
